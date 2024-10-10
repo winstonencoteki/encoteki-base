@@ -1,10 +1,8 @@
 import { abi } from './contract-abi'
 
-const smartContractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS // BASE Smart Contract
-
 const contractConfig = {
   abi,
-  address: smartContractAddress ?? '',
+  address: '0xB0Dc9A40B82DE8E2053039A11B8aeCE6D735685f', // BASE Smart Contract
 } as const
 
 export default contractConfig
