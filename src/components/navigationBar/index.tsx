@@ -4,9 +4,16 @@ import Logo from '../../assets/encoteki-logo.png'
 import NavbarConnectBtn from '../button/navbarConnectBtn'
 import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
+import {
+  Avatar,
+  Identity,
+  Name,
+  Badge,
+  Address,
+} from '@coinbase/onchainkit/identity'
 
 export default function Navbar() {
-  const { isConnected } = useAccount()
+  const { isConnected, address } = useAccount()
   return (
     <header className="z-50 flex items-center justify-between">
       <Link href="/">
@@ -19,8 +26,24 @@ export default function Navbar() {
             <span className="font-medium text-primary-green">DAO</span>
           </button>
         </Link>
-
-        {isConnected ? <ConnectButton /> : <NavbarConnectBtn />}
+        {isConnected ? (
+          <div className="flex gap-2">
+            <Identity
+              address={address}
+              schemaId="0xf8b05c79f090979bf4a80270aba232dff11a10d9ca55c4f88de95317970f0de9"
+              className="w-[200px] rounded-2xl bg-white font-medium"
+            >
+              <Avatar className="mr-1">
+                <Badge className="bg-error" />
+              </Avatar>
+              <Name />
+              <Address />
+            </Identity>
+            <ConnectButton />
+          </div>
+        ) : (
+          <NavbarConnectBtn />
+        )}
       </div>
     </header>
   )
