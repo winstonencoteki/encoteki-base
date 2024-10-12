@@ -23,7 +23,7 @@ Ensure that you have Node.js installed with a minimum version of 18.17.0. This p
 To install dependencies, navigate to the project directory and run:
 
 ```sh
-yarn install
+npm install
 
 ```
 
@@ -32,7 +32,7 @@ yarn install
 If you're ready to deploy the project, create a production build:
 
 ```sh
-yarn build
+npm build
 
 ```
 
@@ -41,6 +41,6 @@ yarn build
 To run the development server locally, use:
 
 ```sh
-yarn dev
+npm run dev
 
 ```
